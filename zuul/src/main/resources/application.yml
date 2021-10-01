@@ -1,0 +1,26 @@
+spring:
+  application:
+    name: zuul
+
+server:
+  port: 8999
+
+zuul:
+  routes:
+    product:
+      path: /products/**
+      serviceId: product
+      stripPrefix: false
+    display:
+      path: /displays/**
+      serviceId: display
+      stripPrefix: false
+
+#zuul도 eureka를 통해서 관리를 함
+eureka:
+  instance:
+    non-secure-port: ${server.port}
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://localhost:8080/eureka/

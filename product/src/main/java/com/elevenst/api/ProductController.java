@@ -1,4 +1,4 @@
-package com.elevenst.controller.api;
+package com.elevenst.api;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,6 +11,12 @@ public class ProductController {
 
     @GetMapping("/{productId}")
     public String getProduct(@PathVariable String productId) {
-        return "productId = " + productId + ", " + System.currentTimeMillis();
+//        try{
+//            Thread.sleep(300);
+//        }catch (InterruptedException e) {
+//            e.printStackTrace();
+//        }
+////        throw new RuntimeException("I/O exception");
+        return "productId = " + productId + " at " + System.currentTimeMillis();
     }
 }
